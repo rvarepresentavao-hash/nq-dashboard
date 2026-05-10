@@ -2,7 +2,10 @@ export default function Home() {
   return (
     <div
       style={{
-        background: "#071018",
+        background: "linear-gradient(135deg, #020617 0%, #071226 40%, #0a1930 100%)",
+backgroundImage:
+"linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",
+backgroundSize: "40px 40px",
         minHeight: "100vh",
         padding: "20px",
         fontFamily: "Arial",
@@ -12,7 +15,7 @@ export default function Home() {
       {/* HEADER */}
       <div style={{ marginBottom: "25px" }}>
         <h1
-          style={{
+          style={{textShadow: "0 0 18px #00ffaa",
             color: "#00ff88",
             fontSize: "58px",
             marginBottom: "10px",
@@ -276,7 +279,34 @@ export default function Home() {
 /* COMPONENTS */
 
 function Card({ title, value, color, desc }: any) {
-  return (
+  return (<>
+<div
+  style={{
+    position: "fixed",
+    width: "600px",
+    height: "600px",
+    background: "rgba(0,255,170,0.08)",
+    filter: "blur(140px)",
+    top: "-200px",
+    right: "-100px",
+    zIndex: 0,
+    pointerEvents: "none"
+  }}
+/>
+
+<div
+  style={{
+    position: "fixed",
+    width: "500px",
+    height: "500px",
+    background: "rgba(0,140,255,0.08)",
+    filter: "blur(140px)",
+    bottom: "-200px",
+    left: "-100px",
+    zIndex: 0,
+    pointerEvents: "none"
+  }}
+/>
     <div
       style={{
         background: "#0b1630",
