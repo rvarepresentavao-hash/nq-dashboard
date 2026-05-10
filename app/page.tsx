@@ -5,7 +5,7 @@ export default function Home() {
         background: "#071018",
         minHeight: "100vh",
         color: "white",
-        padding: "30px",
+        padding: "25px",
         fontFamily: "Arial",
       }}
     >
@@ -14,7 +14,7 @@ export default function Home() {
         <h1
           style={{
             color: "#00ff88",
-            fontSize: "48px",
+            fontSize: "52px",
             margin: 0,
           }}
         >
@@ -27,11 +27,11 @@ export default function Home() {
             marginTop: "10px",
           }}
         >
-          Nasdaq Futures CME • Sistema Institucional • Apex
+          Sistema Institucional • Nasdaq Futures CME • Apex
         </p>
       </div>
 
-      {/* TOP CARDS */}
+      {/* TOP GRID */}
       <div
         style={{
           display: "grid",
@@ -40,67 +40,186 @@ export default function Home() {
           marginBottom: "20px",
         }}
       >
-        <Card title="Bias do Dia" value="LONG" color="#00ff88" desc="HTF bullish + VWAP acima." />
+        <TopCard
+          title="Bias do Dia"
+          value="LONG"
+          color="#00ff88"
+          desc="Fluxo institucional comprador."
+        />
 
-        <Card title="Modo de Mercado" value="BREAKOUT" color="#ffe600" desc="Compressão detectada." />
+        <TopCard
+          title="Modo"
+          value="BREAKOUT"
+          color="#ffe600"
+          desc="Compressão detectada."
+        />
 
-        <Card title="Probabilidade" value="72%" color="#ffffff" desc="Similaridade estatística histórica." />
+        <TopCard
+          title="Probabilidade"
+          value="78%"
+          color="#00d0ff"
+          desc="Confluência estatística."
+        />
 
-        <Card title="Volatilidade" value="ALTA" color="#ff4d6d" desc="Mercado favorável para rompimentos." />
+        <TopCard
+          title="Volatilidade"
+          value="ALTA"
+          color="#ff4d6d"
+          desc="Mercado acelerado."
+        />
       </div>
 
-      {/* MIDDLE */}
+      {/* MARKET SESSIONS */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "repeat(3, 1fr)",
           gap: "20px",
           marginBottom: "20px",
         }}
       >
-        {/* MAG7 */}
+        <SessionCard
+          city="NEW YORK"
+          status="ABERTO"
+          open="21,420"
+          current="21,542"
+          trend="ALTA"
+          color="#00ff88"
+        />
+
+        <SessionCard
+          city="LONDON"
+          status="ABERTO"
+          open="21,310"
+          current="21,542"
+          trend="FORTE"
+          color="#00d0ff"
+        />
+
+        <SessionCard
+          city="TOKYO"
+          status="FECHADO"
+          open="21,180"
+          current="21,210"
+          trend="NEUTRO"
+          color="#ffe600"
+        />
+      </div>
+
+      {/* MAIN */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1.2fr 0.8fr",
+          gap: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        {/* TRADINGVIEW FAKE */}
         <div
           style={{
             background: "#0f172a",
-            border: "1px solid #1e3a5f",
             borderRadius: "20px",
             padding: "20px",
+            border: "1px solid #1e3a5f",
+            height: "500px",
           }}
         >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Magnificent 7
-          </h3>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "20px",
+            }}
+          >
+            <h2 style={{ color: "#00ff88" }}>NQ Futures Chart</h2>
 
-          <StockRow name="Apple" value="+1.28%" color="#00ff88" />
-          <StockRow name="Microsoft" value="+0.74%" color="#00ff88" />
-          <StockRow name="NVIDIA" value="+2.51%" color="#00ff88" />
-          <StockRow name="Amazon" value="-0.42%" color="#ff4d6d" />
-          <StockRow name="Meta" value="+1.13%" color="#00ff88" />
-          <StockRow name="Tesla" value="-1.87%" color="#ff4d6d" />
-          <StockRow name="Alphabet" value="+0.56%" color="#00ff88" />
+            <div style={{ color: "#00ff88" }}>
+              21,542 +1.24%
+            </div>
+          </div>
+
+          <div
+            style={{
+              background: "#071018",
+              height: "400px",
+              borderRadius: "15px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#334155",
+              fontSize: "28px",
+            }}
+          >
+            TradingView Chart Area
+          </div>
+
+          <div
+            style={{
+              marginTop: "20px",
+              display: "flex",
+              gap: "10px",
+            }}
+          >
+            <MiniButton text="1m" />
+            <MiniButton text="5m" />
+            <MiniButton text="15m" />
+            <MiniButton text="1H" />
+            <MiniButton text="4H" />
+            <MiniButton text="Daily" />
+          </div>
         </div>
 
-        {/* TECH */}
+        {/* RIGHT SIDE */}
         <div
           style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
           }}
         >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Top 14 Tecnologia
-          </h3>
+          {/* FEAR */}
+          <Box title="Fear & Greed">
+            <div style={{ textAlign: "center" }}>
+              <h1
+                style={{
+                  color: "#00ff88",
+                  fontSize: "70px",
+                  margin: 0,
+                }}
+              >
+                74
+              </h1>
 
-          <GridSignal left="Apple" right="FORTE" color="#00ff88" />
-          <GridSignal left="Microsoft" right="FORTE" color="#00ff88" />
-          <GridSignal left="NVIDIA" right="EXTREMO" color="#00d0ff" />
-          <GridSignal left="Amazon" right="NEUTRO" color="#ffe600" />
-          <GridSignal left="Meta" right="FORTE" color="#00ff88" />
-          <GridSignal left="Tesla" right="FRACO" color="#ff4d6d" />
-          <GridSignal left="Netflix" right="FORTE" color="#00ff88" />
-          <GridSignal left="AMD" right="FORTE" color="#00ff88" />
+              <p style={{ color: "#00ff88" }}>GREED</p>
+
+              <Progress value="74%" color="#00ff88" />
+            </div>
+          </Box>
+
+          {/* DXY */}
+          <Box title="Institucional">
+            <Row left="DXY" right="BEARISH" color="#ff4d6d" />
+            <Row left="VIX" right="LOW" color="#00ff88" />
+            <Row left="10Y" right="BULLISH" color="#00d0ff" />
+            <Row left="ES" right="LONG" color="#00ff88" />
+            <Row left="BTC" right="RISK ON" color="#ffe600" />
+          </Box>
+
+          {/* IA */}
+          <Box title="IA Institucional">
+            <Alert
+              title="Fluxo comprador dominante"
+              desc="Acima da VWAP + EMA21."
+              color="#00ff88"
+            />
+
+            <Alert
+              title="Liquidez acima das máximas"
+              desc="Sweep provável em NY."
+              color="#ffe600"
+            />
+          </Box>
         </div>
       </div>
 
@@ -114,94 +233,29 @@ export default function Home() {
         }}
       >
         {/* ECONOMIC */}
-        <div
-          style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Calendário Econômico
-          </h3>
+        <Box title="Calendário Econômico">
+          <Event title="CPI" time="09:30" color="#ff4d6d" />
+          <Event title="Powell Speech" time="14:00" color="#ffe600" />
+          <Event title="NFP" time="Friday" color="#00d0ff" />
+        </Box>
 
-          <EventRow title="CPI" time="09:30" color="#ff4d6d" />
-          <EventRow title="Powell Speech" time="14:00" color="#ffe600" />
-          <EventRow title="Treasury Auction" time="15:00" color="#00d0ff" />
-        </div>
+        {/* HEATMAP */}
+        <Box title="Heatmap Tecnologia">
+          <HeatRow name="NVIDIA" value="+2.51%" color="#00ff88" />
+          <HeatRow name="APPLE" value="+1.11%" color="#00ff88" />
+          <HeatRow name="META" value="+1.44%" color="#00ff88" />
+          <HeatRow name="TESLA" value="-1.87%" color="#ff4d6d" />
+          <HeatRow name="AMD" value="+3.12%" color="#00ff88" />
+        </Box>
 
-        {/* CORRELATION */}
-        <div
-          style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Correlação Institucional
-          </h3>
-
-          <StockRow name="NQ" value="BULLISH" color="#00ff88" />
-          <StockRow name="ES" value="BULLISH" color="#00ff88" />
-          <StockRow name="VIX" value="BEARISH" color="#ff4d6d" />
-          <StockRow name="DXY" value="BEARISH" color="#ff4d6d" />
-          <StockRow name="10Y" value="BULLISH" color="#00ff88" />
-        </div>
-
-        {/* FEAR */}
-        <div
-          style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Fear & Greed
-          </h3>
-
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "20px",
-            }}
-          >
-            <h1
-              style={{
-                color: "#00ff88",
-                fontSize: "60px",
-                margin: 0,
-              }}
-            >
-              74
-            </h1>
-
-            <p style={{ color: "#00ff88" }}>GREED</p>
-
-            <div
-              style={{
-                width: "100%",
-                height: "14px",
-                background: "#1e293b",
-                borderRadius: "20px",
-                overflow: "hidden",
-                marginTop: "20px",
-              }}
-            >
-              <div
-                style={{
-                  width: "74%",
-                  height: "100%",
-                  background: "#00ff88",
-                }}
-              />
-            </div>
-          </div>
-        </div>
+        {/* APEX */}
+        <Box title="Painel Apex">
+          <Row left="Loss Diário" right="$430" color="#ff4d6d" />
+          <Row left="Restante" right="$2,070" color="#00ff88" />
+          <Row left="Winrate" right="74%" color="#00d0ff" />
+          <Row left="Drawdown" right="17%" color="#ffe600" />
+          <Row left="Status" right="SEGURO" color="#00ff88" />
+        </Box>
       </div>
 
       {/* BOTTOM */}
@@ -212,66 +266,47 @@ export default function Home() {
           gap: "20px",
         }}
       >
-        {/* IA */}
-        <div
-          style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            IA Institucional
-          </h3>
+        {/* NEWS */}
+        <Box title="Market News">
+          <News text="Nasdaq sobe após CPI." />
+          <News text="Mercado espera corte de juros." />
+          <News text="NVIDIA lidera fluxo comprador." />
+          <News text="Treasury yields caem em NY." />
+        </Box>
 
-          <AlertBox
+        {/* LIQUIDITY */}
+        <Box title="Scanner de Liquidez">
+          <Alert
+            title="Equal Highs detectado"
+            desc="Possível sweep comprador."
+            color="#00d0ff"
+          />
+
+          <Alert
+            title="FVG aberta no 15m"
+            desc="Região institucional ativa."
             color="#00ff88"
-            title="Fluxo Comprador Dominante"
-            desc="Nasdaq acima da VWAP e EMA21."
           />
 
-          <AlertBox
-            color="#ffe600"
-            title="Atenção em Liquidez"
-            desc="Sweep provável acima das máximas."
+          <Alert
+            title="BSL acima do range"
+            desc="Liquidez resting detectada."
+            color="#ff4d6d"
           />
-        </div>
-
-        {/* APEX */}
-        <div
-          style={{
-            background: "#0f172a",
-            border: "1px solid #1e3a5f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
-            Painel Apex
-          </h3>
-
-          <StockRow name="Loss Diário" value="$430" color="#ff4d6d" />
-          <StockRow name="Restante" value="$2,070" color="#00ff88" />
-          <StockRow name="Drawdown" value="17%" color="#ffe600" />
-          <StockRow name="Status" value="Seguro" color="#00d0ff" />
-        </div>
+        </Box>
       </div>
     </div>
   )
 }
 
-function Card({
+/* COMPONENTS */
+
+function TopCard({
   title,
   value,
-  color,
   desc,
-}: {
-  title: string
-  value: string
-  color: string
-  desc: string
-}) {
+  color,
+}: any) {
   return (
     <div
       style={{
@@ -281,39 +316,81 @@ function Card({
         padding: "20px",
       }}
     >
-      <p style={{ color: "#6b7280", marginBottom: "15px" }}>{title}</p>
+      <p style={{ color: "#64748b" }}>{title}</p>
 
-      <h1
-        style={{
-          color,
-          margin: 0,
-        }}
-      >
-        {value}
-      </h1>
+      <h1 style={{ color, margin: 0 }}>{value}</h1>
 
-      <p
-        style={{
-          color: "#94a3b8",
-          marginTop: "15px",
-          fontSize: "14px",
-        }}
-      >
+      <p style={{ color: "#94a3b8", marginTop: "10px" }}>
         {desc}
       </p>
     </div>
   )
 }
 
-function StockRow({
-  name,
-  value,
+function SessionCard({
+  city,
+  status,
+  open,
+  current,
+  trend,
   color,
-}: {
-  name: string
-  value: string
-  color: string
-}) {
+}: any) {
+  return (
+    <div
+      style={{
+        background: "#0f172a",
+        border: "1px solid #1e3a5f",
+        borderRadius: "20px",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <h2 style={{ color }}>{city}</h2>
+
+        <div style={{ color }}>{status}</div>
+      </div>
+
+      <div style={{ marginTop: "20px" }}>
+        <p>Abertura: {open}</p>
+        <p>Atual: {current}</p>
+        <p style={{ color, fontWeight: "bold" }}>
+          Tendência: {trend}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function Box({ title, children }: any) {
+  return (
+    <div
+      style={{
+        background: "#0f172a",
+        border: "1px solid #1e3a5f",
+        borderRadius: "20px",
+        padding: "20px",
+      }}
+    >
+      <h3
+        style={{
+          color: "#6b7280",
+          marginBottom: "20px",
+        }}
+      >
+        {title}
+      </h3>
+
+      {children}
+    </div>
+  )
+}
+
+function Row({ left, right, color }: any) {
   return (
     <div
       style={{
@@ -323,101 +400,23 @@ function StockRow({
         borderBottom: "1px solid #1e293b",
       }}
     >
-      <span>{name}</span>
-
-      <span
-        style={{
-          color,
-          fontWeight: "bold",
-        }}
-      >
-        {value}
-      </span>
-    </div>
-  )
-}
-
-function EventRow({
-  title,
-  time,
-  color,
-}: {
-  title: string
-  time: string
-  color: string
-}) {
-  return (
-    <div
-      style={{
-        background: "#111827",
-        border: "1px solid #1e3a5f",
-        padding: "15px",
-        borderRadius: "14px",
-        marginBottom: "15px",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div>
-        <div style={{ color }}>{title}</div>
-      </div>
-
-      <div style={{ color, fontWeight: "bold" }}>{time}</div>
-    </div>
-  )
-}
-
-function GridSignal({
-  left,
-  right,
-  color,
-}: {
-  left: string
-  right: string
-  color: string
-}) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        background: "#111827",
-        border: "1px solid #1e3a5f",
-        padding: "15px",
-        borderRadius: "14px",
-        marginBottom: "12px",
-      }}
-    >
       <span>{left}</span>
 
-      <span
-        style={{
-          color,
-          fontWeight: "bold",
-        }}
-      >
+      <span style={{ color, fontWeight: "bold" }}>
         {right}
       </span>
     </div>
   )
 }
 
-function AlertBox({
-  title,
-  desc,
-  color,
-}: {
-  title: string
-  desc: string
-  color: string
-}) {
+function Alert({ title, desc, color }: any) {
   return (
     <div
       style={{
         background: "#111827",
         border: "1px solid #1e3a5f",
-        padding: "18px",
         borderRadius: "14px",
+        padding: "15px",
         marginBottom: "15px",
       }}
     >
@@ -425,13 +424,110 @@ function AlertBox({
         style={{
           color,
           fontWeight: "bold",
-          marginBottom: "10px",
+          marginBottom: "8px",
         }}
       >
         {title}
       </div>
 
-      <div style={{ color: "#94a3b8" }}>{desc}</div>
+      <div style={{ color: "#94a3b8" }}>
+        {desc}
+      </div>
+    </div>
+  )
+}
+
+function Event({ title, time, color }: any) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        background: "#111827",
+        borderRadius: "12px",
+        padding: "15px",
+        marginBottom: "12px",
+      }}
+    >
+      <span style={{ color }}>{title}</span>
+
+      <span style={{ color, fontWeight: "bold" }}>
+        {time}
+      </span>
+    </div>
+  )
+}
+
+function HeatRow({ name, value, color }: any) {
+  return (
+    <div
+      style={{
+        background: "#111827",
+        padding: "15px",
+        borderRadius: "12px",
+        marginBottom: "12px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <span>{name}</span>
+
+      <span style={{ color }}>{value}</span>
+    </div>
+  )
+}
+
+function Progress({ value, color }: any) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "15px",
+        background: "#1e293b",
+        borderRadius: "20px",
+        overflow: "hidden",
+        marginTop: "20px",
+      }}
+    >
+      <div
+        style={{
+          width: value,
+          height: "100%",
+          background: color,
+        }}
+      />
+    </div>
+  )
+}
+
+function MiniButton({ text }: any) {
+  return (
+    <button
+      style={{
+        background: "#111827",
+        border: "1px solid #1e3a5f",
+        color: "#00ff88",
+        borderRadius: "10px",
+        padding: "8px 14px",
+        cursor: "pointer",
+      }}
+    >
+      {text}
+    </button>
+  )
+}
+
+function News({ text }: any) {
+  return (
+    <div
+      style={{
+        background: "#111827",
+        padding: "15px",
+        borderRadius: "12px",
+        marginBottom: "12px",
+      }}
+    >
+      • {text}
     </div>
   )
 }
