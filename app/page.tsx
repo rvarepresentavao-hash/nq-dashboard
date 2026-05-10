@@ -18,7 +18,7 @@ export default function Home() {
             marginBottom: "10px",
           }}
         >
-          NQ CME ALPHA ELITE
+          NEXUS NQ TERMINAL
         </h1>
 
         <p
