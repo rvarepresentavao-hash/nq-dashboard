@@ -5,169 +5,433 @@ export default function Home() {
         background: "#071018",
         minHeight: "100vh",
         color: "white",
-        padding: "20px",
+        padding: "30px",
         fontFamily: "Arial",
       }}
     >
-      <h1
-        style={{
-          color: "#00ff88",
-          fontSize: "48px",
-          marginBottom: "30px",
-        }}
-      >
-        NQ CME ALPHA ELITE
-      </h1>
+      {/* HEADER */}
+      <div style={{ marginBottom: "30px" }}>
+        <h1
+          style={{
+            color: "#00ff88",
+            fontSize: "48px",
+            margin: 0,
+          }}
+        >
+          NQ CME ALPHA ELITE
+        </h1>
 
+        <p
+          style={{
+            color: "#6b7280",
+            marginTop: "10px",
+          }}
+        >
+          Nasdaq Futures CME • Sistema Institucional • Apex
+        </p>
+      </div>
+
+      {/* TOP CARDS */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gap: "20px",
+          marginBottom: "20px",
         }}
       >
-        {/* NASDAQ */}
+        <Card title="Bias do Dia" value="LONG" color="#00ff88" desc="HTF bullish + VWAP acima." />
+
+        <Card title="Modo de Mercado" value="BREAKOUT" color="#ffe600" desc="Compressão detectada." />
+
+        <Card title="Probabilidade" value="72%" color="#ffffff" desc="Similaridade estatística histórica." />
+
+        <Card title="Volatilidade" value="ALTA" color="#ff4d6d" desc="Mercado favorável para rompimentos." />
+      </div>
+
+      {/* MIDDLE */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        {/* MAG7 */}
         <div
           style={{
-            background: "#111827",
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
             padding: "20px",
-            borderRadius: "18px",
           }}
         >
-          <h2 style={{ color: "#00ff88" }}>NASDAQ</h2>
-          <p style={{ fontSize: "28px" }}>21,542</p>
-          <p style={{ color: "#22c55e" }}>+1.24%</p>
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Magnificent 7
+          </h3>
+
+          <StockRow name="Apple" value="+1.28%" color="#00ff88" />
+          <StockRow name="Microsoft" value="+0.74%" color="#00ff88" />
+          <StockRow name="NVIDIA" value="+2.51%" color="#00ff88" />
+          <StockRow name="Amazon" value="-0.42%" color="#ff4d6d" />
+          <StockRow name="Meta" value="+1.13%" color="#00ff88" />
+          <StockRow name="Tesla" value="-1.87%" color="#ff4d6d" />
+          <StockRow name="Alphabet" value="+0.56%" color="#00ff88" />
         </div>
 
-        {/* DXY */}
+        {/* TECH */}
         <div
           style={{
-            background: "#111827",
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
             padding: "20px",
-            borderRadius: "18px",
           }}
         >
-          <h2 style={{ color: "#00d0ff" }}>DXY</h2>
-          <p style={{ fontSize: "28px" }}>104.32</p>
-          <p style={{ color: "#ef4444" }}>-0.31%</p>
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Top 14 Tecnologia
+          </h3>
+
+          <GridSignal left="Apple" right="FORTE" color="#00ff88" />
+          <GridSignal left="Microsoft" right="FORTE" color="#00ff88" />
+          <GridSignal left="NVIDIA" right="EXTREMO" color="#00d0ff" />
+          <GridSignal left="Amazon" right="NEUTRO" color="#ffe600" />
+          <GridSignal left="Meta" right="FORTE" color="#00ff88" />
+          <GridSignal left="Tesla" right="FRACO" color="#ff4d6d" />
+          <GridSignal left="Netflix" right="FORTE" color="#00ff88" />
+          <GridSignal left="AMD" right="FORTE" color="#00ff88" />
+        </div>
+      </div>
+
+      {/* LOWER */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        {/* ECONOMIC */}
+        <div
+          style={{
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
+            padding: "20px",
+          }}
+        >
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Calendário Econômico
+          </h3>
+
+          <EventRow title="CPI" time="09:30" color="#ff4d6d" />
+          <EventRow title="Powell Speech" time="14:00" color="#ffe600" />
+          <EventRow title="Treasury Auction" time="15:00" color="#00d0ff" />
         </div>
 
-        {/* VIX */}
+        {/* CORRELATION */}
         <div
           style={{
-            background: "#111827",
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
             padding: "20px",
-            borderRadius: "18px",
           }}
         >
-          <h2 style={{ color: "#ffae00" }}>VIX</h2>
-          <p style={{ fontSize: "28px" }}>14.82</p>
-          <p style={{ color: "#22c55e" }}>LOW VOLATILITY</p>
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Correlação Institucional
+          </h3>
+
+          <StockRow name="NQ" value="BULLISH" color="#00ff88" />
+          <StockRow name="ES" value="BULLISH" color="#00ff88" />
+          <StockRow name="VIX" value="BEARISH" color="#ff4d6d" />
+          <StockRow name="DXY" value="BEARISH" color="#ff4d6d" />
+          <StockRow name="10Y" value="BULLISH" color="#00ff88" />
         </div>
 
-        {/* Economic Calendar */}
+        {/* FEAR */}
         <div
           style={{
-            background: "#111827",
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
             padding: "20px",
-            borderRadius: "18px",
           }}
         >
-          <h2 style={{ color: "#ff4d6d" }}>Economic Calendar</h2>
-
-          <div style={{ marginTop: "15px" }}>
-            <p>USD CPI — 09:30</p>
-            <p>FOMC SPEECH — 14:00</p>
-            <p>NFP — Friday</p>
-          </div>
-        </div>
-
-        {/* Market Sessions */}
-        <div
-          style={{
-            background: "#111827",
-            padding: "20px",
-            borderRadius: "18px",
-          }}
-        >
-          <h2 style={{ color: "#8b5cf6" }}>Market Sessions</h2>
-
-          <div style={{ marginTop: "15px" }}>
-            <p>🇺🇸 New York — OPEN</p>
-            <p>🇬🇧 London — OPEN</p>
-            <p>🇯🇵 Tokyo — CLOSED</p>
-          </div>
-        </div>
-
-        {/* Fear and Greed */}
-        <div
-          style={{
-            background: "#111827",
-            padding: "20px",
-            borderRadius: "18px",
-          }}
-        >
-          <h2 style={{ color: "#00ff88" }}>Fear & Greed</h2>
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Fear & Greed
+          </h3>
 
           <div
             style={{
+              textAlign: "center",
               marginTop: "20px",
-              height: "20px",
-              width: "100%",
-              background: "#1f2937",
-              borderRadius: "20px",
-              overflow: "hidden",
             }}
           >
+            <h1
+              style={{
+                color: "#00ff88",
+                fontSize: "60px",
+                margin: 0,
+              }}
+            >
+              74
+            </h1>
+
+            <p style={{ color: "#00ff88" }}>GREED</p>
+
             <div
               style={{
-                width: "72%",
-                height: "100%",
-                background: "#22c55e",
+                width: "100%",
+                height: "14px",
+                background: "#1e293b",
+                borderRadius: "20px",
+                overflow: "hidden",
+                marginTop: "20px",
               }}
-            />
+            >
+              <div
+                style={{
+                  width: "74%",
+                  height: "100%",
+                  background: "#00ff88",
+                }}
+              />
+            </div>
           </div>
-
-          <p style={{ marginTop: "10px" }}>72 — GREED</p>
         </div>
       </div>
 
-      {/* NEWS */}
+      {/* BOTTOM */}
       <div
         style={{
-          marginTop: "30px",
-          background: "#111827",
-          padding: "20px",
-          borderRadius: "18px",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
         }}
       >
-        <h2 style={{ color: "#00d0ff" }}>Market News</h2>
+        {/* IA */}
+        <div
+          style={{
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
+            padding: "20px",
+          }}
+        >
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            IA Institucional
+          </h3>
 
-        <div style={{ marginTop: "20px" }}>
-          <p>• Nasdaq rises after CPI data release</p>
-          <p>• Traders expect possible rate cuts</p>
-          <p>• AI stocks continue strong momentum</p>
-          <p>• Bond yields fall during NY session</p>
+          <AlertBox
+            color="#00ff88"
+            title="Fluxo Comprador Dominante"
+            desc="Nasdaq acima da VWAP e EMA21."
+          />
+
+          <AlertBox
+            color="#ffe600"
+            title="Atenção em Liquidez"
+            desc="Sweep provável acima das máximas."
+          />
+        </div>
+
+        {/* APEX */}
+        <div
+          style={{
+            background: "#0f172a",
+            border: "1px solid #1e3a5f",
+            borderRadius: "20px",
+            padding: "20px",
+          }}
+        >
+          <h3 style={{ color: "#6b7280", marginBottom: "20px" }}>
+            Painel Apex
+          </h3>
+
+          <StockRow name="Loss Diário" value="$430" color="#ff4d6d" />
+          <StockRow name="Restante" value="$2,070" color="#00ff88" />
+          <StockRow name="Drawdown" value="17%" color="#ffe600" />
+          <StockRow name="Status" value="Seguro" color="#00d0ff" />
         </div>
       </div>
+    </div>
+  )
+}
 
-      {/* SUPPLY DEMAND */}
+function Card({
+  title,
+  value,
+  color,
+  desc,
+}: {
+  title: string
+  value: string
+  color: string
+  desc: string
+}) {
+  return (
+    <div
+      style={{
+        background: "#0f172a",
+        border: "1px solid #1e3a5f",
+        borderRadius: "20px",
+        padding: "20px",
+      }}
+    >
+      <p style={{ color: "#6b7280", marginBottom: "15px" }}>{title}</p>
+
+      <h1
+        style={{
+          color,
+          margin: 0,
+        }}
+      >
+        {value}
+      </h1>
+
+      <p
+        style={{
+          color: "#94a3b8",
+          marginTop: "15px",
+          fontSize: "14px",
+        }}
+      >
+        {desc}
+      </p>
+    </div>
+  )
+}
+
+function StockRow({
+  name,
+  value,
+  color,
+}: {
+  name: string
+  value: string
+  color: string
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "12px 0",
+        borderBottom: "1px solid #1e293b",
+      }}
+    >
+      <span>{name}</span>
+
+      <span
+        style={{
+          color,
+          fontWeight: "bold",
+        }}
+      >
+        {value}
+      </span>
+    </div>
+  )
+}
+
+function EventRow({
+  title,
+  time,
+  color,
+}: {
+  title: string
+  time: string
+  color: string
+}) {
+  return (
+    <div
+      style={{
+        background: "#111827",
+        border: "1px solid #1e3a5f",
+        padding: "15px",
+        borderRadius: "14px",
+        marginBottom: "15px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <div style={{ color }}>{title}</div>
+      </div>
+
+      <div style={{ color, fontWeight: "bold" }}>{time}</div>
+    </div>
+  )
+}
+
+function GridSignal({
+  left,
+  right,
+  color,
+}: {
+  left: string
+  right: string
+  color: string
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        background: "#111827",
+        border: "1px solid #1e3a5f",
+        padding: "15px",
+        borderRadius: "14px",
+        marginBottom: "12px",
+      }}
+    >
+      <span>{left}</span>
+
+      <span
+        style={{
+          color,
+          fontWeight: "bold",
+        }}
+      >
+        {right}
+      </span>
+    </div>
+  )
+}
+
+function AlertBox({
+  title,
+  desc,
+  color,
+}: {
+  title: string
+  desc: string
+  color: string
+}) {
+  return (
+    <div
+      style={{
+        background: "#111827",
+        border: "1px solid #1e3a5f",
+        padding: "18px",
+        borderRadius: "14px",
+        marginBottom: "15px",
+      }}
+    >
       <div
         style={{
-          marginTop: "30px",
-          background: "#111827",
-          padding: "20px",
-          borderRadius: "18px",
+          color,
+          fontWeight: "bold",
+          marginBottom: "10px",
         }}
       >
-        <h2 style={{ color: "#ffae00" }}>Supply & Demand Zones</h2>
-
-        <div style={{ marginTop: "20px" }}>
-          <p>Demand Zone: 21,420 - 21,450</p>
-          <p>Supply Zone: 21,610 - 21,650</p>
-          <p>Liquidity Sweep Area: 21,700</p>
-        </div>
+        {title}
       </div>
+
+      <div style={{ color: "#94a3b8" }}>{desc}</div>
     </div>
   )
 }
