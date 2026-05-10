@@ -4,34 +4,26 @@ export default function Home() {
       style={{
         background: "#071018",
         minHeight: "100vh",
-        color: "white",
-        padding: "25px",
+        padding: "20px",
         fontFamily: "Arial",
+        color: "white",
       }}
     >
-      {/* HEADER */}
-      <div style={{ marginBottom: "30px" }}>
-        <h1
-          style={{
-            color: "#00ff88",
-            fontSize: "52px",
-            margin: 0,
-          }}
-        >
-          NQ CME ALPHA ELITE
-        </h1>
+      <h1
+        style={{
+          color: "#00ff88",
+          fontSize: "58px",
+          marginBottom: "10px",
+        }}
+      >
+        NQ CME ALPHA ELITE
+      </h1>
 
-        <p
-          style={{
-            color: "#6b7280",
-            marginTop: "10px",
-          }}
-        >
-          Sistema Institucional • Nasdaq Futures CME • Apex
-        </p>
-      </div>
+      <p style={{ color: "#7c8aa0", marginBottom: "30px" }}>
+        Sistema Institucional • Nasdaq Futures CME • Apex
+      </p>
 
-      {/* TOP GRID */}
+      {/* TOPO */}
       <div
         style={{
           display: "grid",
@@ -40,28 +32,28 @@ export default function Home() {
           marginBottom: "20px",
         }}
       >
-        <TopCard
+        <Card
           title="Bias do Dia"
           value="LONG"
           color="#00ff88"
           desc="Fluxo institucional comprador."
         />
 
-        <TopCard
+        <Card
           title="Modo"
           value="BREAKOUT"
-          color="#ffe600"
+          color="#ffd500"
           desc="Compressão detectada."
         />
 
-        <TopCard
+        <Card
           title="Probabilidade"
           value="78%"
           color="#00d0ff"
           desc="Confluência estatística."
         />
 
-        <TopCard
+        <Card
           title="Volatilidade"
           value="ALTA"
           color="#ff4d6d"
@@ -69,7 +61,7 @@ export default function Home() {
         />
       </div>
 
-      {/* MARKET SESSIONS */}
+      {/* SESSÕES */}
       <div
         style={{
           display: "grid",
@@ -80,7 +72,7 @@ export default function Home() {
       >
         <SessionCard
           city="NEW YORK"
-          status="ABERTO"
+          status="FECHADO"
           open="21,420"
           current="21,542"
           trend="ALTA"
@@ -89,7 +81,7 @@ export default function Home() {
 
         <SessionCard
           city="LONDON"
-          status="ABERTO"
+          status="FECHADO"
           open="21,310"
           current="21,542"
           trend="FORTE"
@@ -98,228 +90,208 @@ export default function Home() {
 
         <SessionCard
           city="TOKYO"
-          status="FECHADO"
+          status="ABERTO"
           open="21,180"
           current="21,210"
           trend="NEUTRO"
-          color="#ffe600"
+          color="#ffd500"
         />
       </div>
 
-      {/* MAIN */}
+      {/* GRÁFICO */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "1.2fr 0.8fr",
-          gap: "20px",
+          background: "#0b1630",
+          border: "1px solid #18335f",
+          borderRadius: "20px",
+          padding: "20px",
           marginBottom: "20px",
         }}
       >
-        {/* TRADINGVIEW FAKE */}
-        <div
-          style={{
-            background: "#0f172a",
-            borderRadius: "20px",
-            padding: "20px",
-            border: "1px solid #1e3a5f",
-            height: "500px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 style={{ color: "#00ff88" }}>NQ Futures Chart</h2>
-
-            <div style={{ color: "#00ff88" }}>
-              21,542 +1.24%
-            </div>
-          </div>
-
-         <iframe
-  src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CME_MINI:NQ1!&interval=15&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=071018&studies=[]&theme=dark&style=1&timezone=America/New_York"
-  style={{
-    width: "100%",
-    height: "400px",
-    border: "none",
-    borderRadius: "15px",
-  }}
-/>
-
-          <div
-            style={{
-              marginTop: "20px",
-              display: "flex",
-              gap: "10px",
-            }}
-          >
-            <MiniButton text="1m" />
-            <MiniButton text="5m" />
-            <MiniButton text="15m" />
-            <MiniButton text="1H" />
-            <MiniButton text="4H" />
-            <MiniButton text="Daily" />
-          </div>
-        </div>
-
-        {/* RIGHT SIDE */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: "20px",
+            justifyContent: "space-between",
+            marginBottom: "15px",
           }}
         >
-          {/* FEAR */}
-          <Box title="Fear & Greed">
-            <div style={{ textAlign: "center" }}>
-              <h1
-                style={{
-                  color: "#00ff88",
-                  fontSize: "70px",
-                  margin: 0,
-                }}
-              >
-                74
-              </h1>
+          <div style={{ color: "#00ff88", fontSize: "28px" }}>
+            NQ Futures Chart
+          </div>
 
-              <p style={{ color: "#00ff88" }}>GREED</p>
-
-              <Progress value="74%" color="#00ff88" />
-            </div>
-          </Box>
-
-          {/* DXY */}
-          <Box title="Institucional">
-            <Row left="DXY" right="BEARISH" color="#ff4d6d" />
-            <Row left="VIX" right="LOW" color="#00ff88" />
-            <Row left="10Y" right="BULLISH" color="#00d0ff" />
-            <Row left="ES" right="LONG" color="#00ff88" />
-            <Row left="BTC" right="RISK ON" color="#ffe600" />
-          </Box>
-
-          {/* IA */}
-          <Box title="IA Institucional">
-            <Alert
-              title="Fluxo comprador dominante"
-              desc="Acima da VWAP + EMA21."
-              color="#00ff88"
-            />
-
-            <Alert
-              title="Liquidez acima das máximas"
-              desc="Sweep provável em NY."
-              color="#ffe600"
-            />
-          </Box>
+          <div style={{ color: "#00ff88", fontSize: "20px" }}>
+            21,542 +1.24%
+          </div>
         </div>
+
+        <iframe
+          src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CME_MINI:NQ1!&interval=15"
+          style={{
+            width: "100%",
+            height: "500px",
+            border: "none",
+            borderRadius: "15px",
+          }}
+        />
       </div>
 
-      {/* LOWER */}
+      {/* NEWS + FEAR */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
+          gridTemplateColumns: "2fr 1fr",
           gap: "20px",
           marginBottom: "20px",
         }}
       >
-        {/* ECONOMIC */}
-        <Box title="Calendário Econômico">
-          <Event title="CPI" time="09:30" color="#ff4d6d" />
-          <Event title="Powell Speech" time="14:00" color="#ffe600" />
-          <Event title="NFP" time="Friday" color="#00d0ff" />
-        </Box>
+        <div
+          style={{
+            background: "#0b1630",
+            border: "1px solid #18335f",
+            borderRadius: "20px",
+            padding: "20px",
+          }}
+        >
+          <div
+            style={{
+              color: "#00d0ff",
+              fontSize: "28px",
+              marginBottom: "20px",
+            }}
+          >
+            Market News
+          </div>
 
-        {/* HEATMAP */}
-        <Box title="Heatmap Tecnologia">
-          <HeatRow name="NVIDIA" value="+2.51%" color="#00ff88" />
-          <HeatRow name="APPLE" value="+1.11%" color="#00ff88" />
-          <HeatRow name="META" value="+1.44%" color="#00ff88" />
-          <HeatRow name="TESLA" value="-1.87%" color="#ff4d6d" />
-          <HeatRow name="AMD" value="+3.12%" color="#00ff88" />
-        </Box>
+          <ul style={{ lineHeight: "45px", fontSize: "22px" }}>
+            <li>Nasdaq mantém força compradora institucional</li>
+            <li>DXY perde momentum durante sessão asiática</li>
+            <li>VIX permanece em baixa volatilidade</li>
+            <li>Mercado aguarda CPI e FOMC</li>
+          </ul>
+        </div>
 
-        {/* APEX */}
-        <Box title="Painel Apex">
-          <Row left="Loss Diário" right="$430" color="#ff4d6d" />
-          <Row left="Restante" right="$2,070" color="#00ff88" />
-          <Row left="Winrate" right="74%" color="#00d0ff" />
-          <Row left="Drawdown" right="17%" color="#ffe600" />
-          <Row left="Status" right="SEGURO" color="#00ff88" />
-        </Box>
+        <div
+          style={{
+            background: "#0b1630",
+            border: "1px solid #18335f",
+            borderRadius: "20px",
+            padding: "20px",
+          }}
+        >
+          <div
+            style={{
+              color: "#00ff88",
+              fontSize: "28px",
+              marginBottom: "30px",
+            }}
+          >
+            Fear & Greed
+          </div>
+
+          <div
+            style={{
+              fontSize: "72px",
+              color: "#00ff88",
+              fontWeight: "bold",
+            }}
+          >
+            72
+          </div>
+
+          <div
+            style={{
+              color: "#00ff88",
+              fontSize: "30px",
+              marginBottom: "20px",
+            }}
+          >
+            GREED
+          </div>
+
+          <div
+            style={{
+              background: "#1d2a44",
+              height: "18px",
+              borderRadius: "10px",
+            }}
+          >
+            <div
+              style={{
+                width: "72%",
+                height: "18px",
+                background: "#22c55e",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
+        </div>
       </div>
 
-      {/* BOTTOM */}
+      {/* ZONAS */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "20px",
+          background: "#0b1630",
+          border: "1px solid #18335f",
+          borderRadius: "20px",
+          padding: "20px",
         }}
       >
-        {/* NEWS */}
-        <Box title="Market News">
-          <News text="Nasdaq sobe após CPI." />
-          <News text="Mercado espera corte de juros." />
-          <News text="NVIDIA lidera fluxo comprador." />
-          <News text="Treasury yields caem em NY." />
-        </Box>
+        <div
+          style={{
+            color: "#ffd500",
+            fontSize: "30px",
+            marginBottom: "20px",
+          }}
+        >
+          Supply & Demand Zones
+        </div>
 
-        {/* LIQUIDITY */}
-        <Box title="Scanner de Liquidez">
-          <Alert
-            title="Equal Highs detectado"
-            desc="Possível sweep comprador."
-            color="#00d0ff"
-          />
-
-          <Alert
-            title="FVG aberta no 15m"
-            desc="Região institucional ativa."
-            color="#00ff88"
-          />
-
-          <Alert
-            title="BSL acima do range"
-            desc="Liquidez resting detectada."
-            color="#ff4d6d"
-          />
-        </Box>
+        <div style={{ fontSize: "24px", lineHeight: "45px" }}>
+          <div>Demand Zone: 21,420 - 21,450</div>
+          <div>Supply Zone: 21,610 - 21,650</div>
+          <div>Liquidity Sweep Area: 21,700</div>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-/* COMPONENTS */
-
-function TopCard({
+function Card({
   title,
   value,
-  desc,
   color,
-}: any) {
+  desc,
+}: {
+  title: string;
+  value: string;
+  color: string;
+  desc: string;
+}) {
   return (
     <div
       style={{
-        background: "#0f172a",
-        border: "1px solid #1e3a5f",
+        background: "#0b1630",
+        border: "1px solid #18335f",
         borderRadius: "20px",
         padding: "20px",
       }}
     >
-      <p style={{ color: "#64748b" }}>{title}</p>
+      <div style={{ color: "#7c8aa0", marginBottom: "10px" }}>{title}</div>
 
-      <h1 style={{ color, margin: 0 }}>{value}</h1>
+      <div
+        style={{
+          color,
+          fontSize: "38px",
+          fontWeight: "bold",
+          marginBottom: "15px",
+        }}
+      >
+        {value}
+      </div>
 
-      <p style={{ color: "#94a3b8", marginTop: "10px" }}>
-        {desc}
-      </p>
+      <div style={{ color: "#9fb0c7", fontSize: "20px" }}>{desc}</div>
     </div>
-  )
+  );
 }
 
 function SessionCard({
@@ -329,12 +301,19 @@ function SessionCard({
   current,
   trend,
   color,
-}: any) {
+}: {
+  city: string;
+  status: string;
+  open: string;
+  current: string;
+  trend: string;
+  color: string;
+}) {
   return (
     <div
       style={{
-        background: "#0f172a",
-        border: "1px solid #1e3a5f",
+        background: "#0b1630",
+        border: "1px solid #18335f",
         borderRadius: "20px",
         padding: "20px",
       }}
@@ -343,186 +322,28 @@ function SessionCard({
         style={{
           display: "flex",
           justifyContent: "space-between",
+          marginBottom: "25px",
         }}
       >
-        <h2 style={{ color }}>{city}</h2>
+        <div style={{ color, fontSize: "30px" }}>{city}</div>
 
-        <div style={{ color }}>{status}</div>
+        <div style={{ color, fontSize: "28px" }}>{status}</div>
       </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <p>Abertura: {open}</p>
-        <p>Atual: {current}</p>
-        <p style={{ color, fontWeight: "bold" }}>
+      <div style={{ fontSize: "20px", lineHeight: "40px" }}>
+        <div>Abertura: {open}</div>
+        <div>Atual: {current}</div>
+
+        <div
+          style={{
+            color,
+            fontWeight: "bold",
+            marginTop: "10px",
+          }}
+        >
           Tendência: {trend}
-        </p>
+        </div>
       </div>
     </div>
-  )
-}
-
-function Box({ title, children }: any) {
-  return (
-    <div
-      style={{
-        background: "#0f172a",
-        border: "1px solid #1e3a5f",
-        borderRadius: "20px",
-        padding: "20px",
-      }}
-    >
-      <h3
-        style={{
-          color: "#6b7280",
-          marginBottom: "20px",
-        }}
-      >
-        {title}
-      </h3>
-
-      {children}
-    </div>
-  )
-}
-
-function Row({ left, right, color }: any) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "12px 0",
-        borderBottom: "1px solid #1e293b",
-      }}
-    >
-      <span>{left}</span>
-
-      <span style={{ color, fontWeight: "bold" }}>
-        {right}
-      </span>
-    </div>
-  )
-}
-
-function Alert({ title, desc, color }: any) {
-  return (
-    <div
-      style={{
-        background: "#111827",
-        border: "1px solid #1e3a5f",
-        borderRadius: "14px",
-        padding: "15px",
-        marginBottom: "15px",
-      }}
-    >
-      <div
-        style={{
-          color,
-          fontWeight: "bold",
-          marginBottom: "8px",
-        }}
-      >
-        {title}
-      </div>
-
-      <div style={{ color: "#94a3b8" }}>
-        {desc}
-      </div>
-    </div>
-  )
-}
-
-function Event({ title, time, color }: any) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        background: "#111827",
-        borderRadius: "12px",
-        padding: "15px",
-        marginBottom: "12px",
-      }}
-    >
-      <span style={{ color }}>{title}</span>
-
-      <span style={{ color, fontWeight: "bold" }}>
-        {time}
-      </span>
-    </div>
-  )
-}
-
-function HeatRow({ name, value, color }: any) {
-  return (
-    <div
-      style={{
-        background: "#111827",
-        padding: "15px",
-        borderRadius: "12px",
-        marginBottom: "12px",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <span>{name}</span>
-
-      <span style={{ color }}>{value}</span>
-    </div>
-  )
-}
-
-function Progress({ value, color }: any) {
-  return (
-    <div
-      style={{
-        width: "100%",
-        height: "15px",
-        background: "#1e293b",
-        borderRadius: "20px",
-        overflow: "hidden",
-        marginTop: "20px",
-      }}
-    >
-      <div
-        style={{
-          width: value,
-          height: "100%",
-          background: color,
-        }}
-      />
-    </div>
-  )
-}
-
-function MiniButton({ text }: any) {
-  return (
-    <button
-      style={{
-        background: "#111827",
-        border: "1px solid #1e3a5f",
-        color: "#00ff88",
-        borderRadius: "10px",
-        padding: "8px 14px",
-        cursor: "pointer",
-      }}
-    >
-      {text}
-    </button>
-  )
-}
-
-function News({ text }: any) {
-  return (
-    <div
-      style={{
-        background: "#111827",
-        padding: "15px",
-        borderRadius: "12px",
-        marginBottom: "12px",
-      }}
-    >
-      • {text}
-    </div>
-  )
+  );
 }
