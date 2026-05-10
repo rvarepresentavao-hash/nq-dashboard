@@ -139,20 +139,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            style={{
-              background: "#071018",
-              height: "400px",
-              borderRadius: "15px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#334155",
-              fontSize: "28px",
-            }}
-          >
-            TradingView Chart Area
-          </div>
+         <iframe
+  src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CME_MINI:NQ1!&interval=15&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=071018&studies=[]&theme=dark&style=1&timezone=America/New_York"
+  style={{
+    width: "100%",
+    height: "400px",
+    border: "none",
+    borderRadius: "15px",
+  }}
+/>
 
           <div
             style={{
