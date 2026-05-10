@@ -39,16 +39,14 @@ export default function Home() {
           padding: "15px",
           borderRadius: "15px",
           marginBottom: "25px",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
           color: "#00ff88",
           fontSize: "18px",
         }}
       >
-        NQ +1.24% • ES +0.88% • BTC +2.11% • DXY -0.31% • VIX -1.22% • GOLD +0.44% • NVDA +2.51% • META +1.44%
+        NQ +1.24% • ES +0.88% • BTC +2.11% • DXY -0.31% • VIX -1.22% • NVDA +2.51% • META +1.44%
       </div>
 
-      {/* TOPO */}
+      {/* TOP */}
       <div
         style={{
           display: "grid",
@@ -57,13 +55,13 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
-        <Card title="Bias do Dia" value="LONG" color="#00ff88" desc="Fluxo comprador institucional." />
-        <Card title="Modo" value="BREAKOUT" color="#ffd500" desc="Compressão detectada." />
-        <Card title="Probabilidade IA" value="78%" color="#00d0ff" desc="Confluência estatística." />
+        <Card title="Bias IA" value="LONG" color="#00ff88" desc="Fluxo comprador institucional." />
+        <Card title="Market Structure" value="HH / HL" color="#00d0ff" desc="Estrutura bullish." />
+        <Card title="Probabilidade" value="81%" color="#ffd500" desc="AI Bias Engine." />
         <Card title="Volatilidade" value="ALTA" color="#ff4d6d" desc="Mercado acelerado." />
       </div>
 
-      {/* CLOCKS */}
+      {/* SESSIONS */}
       <div
         style={{
           display: "grid",
@@ -78,148 +76,74 @@ export default function Home() {
         <Session city="SYDNEY" status="ABERTO" trend="ALTA" color="#00ff88" />
       </div>
 
-      {/* CHART + SIDE */}
+      {/* CHART */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "2fr 1fr",
-          gap: "20px",
+          background: "#0b1630",
+          border: "1px solid #18335f",
+          borderRadius: "20px",
+          padding: "20px",
           marginBottom: "25px",
         }}
       >
-        {/* CHART */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
-            <div style={{ color: "#00ff88", fontSize: "28px" }}>
-              NASDAQ CME LIVE
-            </div>
-
-            <div style={{ color: "#00ff88", fontSize: "20px" }}>
-              +1.24%
-            </div>
-          </div>
-
-          <iframe
-            src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CAPITALCOM:US100&interval=15&theme=dark&style=1&timezone=America/New_York"
-            style={{
-              width: "100%",
-              height: "600px",
-              border: "none",
-              borderRadius: "15px",
-            }}
-          />
-
-          {/* TIMEFRAMES */}
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              marginTop: "20px",
-            }}
-          >
-            <MiniBtn text="1m" />
-            <MiniBtn text="5m" />
-            <MiniBtn text="15m" />
-            <MiniBtn text="1H" />
-            <MiniBtn text="4H" />
-            <MiniBtn text="Daily" />
-          </div>
-        </div>
-
-        {/* RIGHT */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: "20px",
+            justifyContent: "space-between",
+            marginBottom: "15px",
           }}
         >
-          {/* FEAR */}
-          <Box title="Fear & Greed">
-            <div
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  color: "#00ff88",
-                  fontSize: "80px",
-                  fontWeight: "bold",
-                }}
-              >
-                74
-              </div>
+          <div style={{ color: "#00ff88", fontSize: "28px" }}>
+            NASDAQ CME LIVE
+          </div>
 
-              <div
-                style={{
-                  color: "#00ff88",
-                  fontSize: "28px",
-                  marginBottom: "20px",
-                }}
-              >
-                GREED
-              </div>
-
-              <Bar width="74%" color="#22c55e" />
-            </div>
-          </Box>
-
-          {/* INSTITUCIONAL */}
-          <Box title="Institucional">
-            <Line asset="DXY" value="BEARISH" color="#ff4d6d" />
-            <Line asset="VIX" value="LOW VOL" color="#00ff88" />
-            <Line asset="10Y" value="BULLISH" color="#00d0ff" />
-            <Line asset="BTC" value="RISK ON" color="#ffd500" />
-            <Line asset="ES" value="LONG" color="#00ff88" />
-          </Box>
-
-          {/* IA */}
-          <Box title="IA Institucional">
-            <Alert
-              title="Fluxo comprador dominante"
-              desc="Acima da VWAP + EMA21."
-              color="#00ff88"
-            />
-
-            <Alert
-              title="Liquidez acima das máximas"
-              desc="Sweep provável em NY."
-              color="#ffd500"
-            />
-          </Box>
+          <div style={{ color: "#00ff88", fontSize: "20px" }}>
+            +1.24%
+          </div>
         </div>
+
+        <iframe
+          src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CAPITALCOM:US100&interval=30&theme=dark&style=1&timezone=America/New_York"
+          style={{
+            width: "100%",
+            height: "650px",
+            border: "none",
+            borderRadius: "15px",
+          }}
+        />
       </div>
 
-      {/* MARKET STRUCTURE */}
+      {/* IA + DOM + VWAP */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
+          gridTemplateColumns: "1fr 1fr 1fr",
           gap: "20px",
           marginBottom: "25px",
         }}
       >
-        <Card title="Market Structure" value="HH / HL" color="#00ff88" desc="Estrutura bullish." />
-        <Card title="VWAP" value="ACIMA" color="#00ff88" desc="Preço acima da VWAP." />
-        <Card title="EMA 21" value="BULLISH" color="#00d0ff" desc="Momentum comprador." />
-        <Card title="EMA 200" value="BULLISH" color="#00ff88" desc="HTF alinhado." />
+        <Box title="IA Institucional">
+          <Alert title="81% LONG continuation" desc="Acima da VWAP + EMA21." color="#00ff88" />
+          <Alert title="Liquidity Sweep provável" desc="BSL resting acima do range." color="#ffd500" />
+          <Alert title="30m Demand ativa" desc="Compradores reagindo." color="#00d0ff" />
+        </Box>
+
+        <Box title="VWAP Engine">
+          <Line asset="VWAP" value="ACIMA" color="#00ff88" />
+          <Line asset="EMA 21" value="BULLISH" color="#00d0ff" />
+          <Line asset="EMA 200" value="BULLISH" color="#00ff88" />
+          <Line asset="Momentum" value="FORTE" color="#ffd500" />
+        </Box>
+
+        <Box title="DOM / Order Flow">
+          <Line asset="Buyers" value="DOMINANDO" color="#00ff88" />
+          <Line asset="Delta" value="POSITIVO" color="#00d0ff" />
+          <Line asset="Absorption" value="ATIVA" color="#ffd500" />
+          <Line asset="Stacked Bids" value="DETECTADO" color="#00ff88" />
+        </Box>
       </div>
 
-      {/* MAG7 + TECH */}
+      {/* SUPPLY DEMAND + LIQUIDITY */}
       <div
         style={{
           display: "grid",
@@ -228,10 +152,70 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
-        {/* MAG7 */}
+        <Box title="Supply & Demand Alerts">
+          <Alert
+            title="⚠ Próximo da DEMAND"
+            desc="Zona 21,420 - 21,450 • 30m"
+            color="#00ff88"
+          />
+
+          <Alert
+            title="⚠ Próximo da SUPPLY"
+            desc="Zona 21,610 - 21,650 • 30m"
+            color="#ff4d6d"
+          />
+
+          <Alert
+            title="⚠ Sweep provável"
+            desc="Liquidez resting acima da supply."
+            color="#ffd500"
+          />
+        </Box>
+
+        <Box title="Liquidity Engine">
+          <Line asset="BSL" value="ACIMA" color="#00ff88" />
+          <Line asset="SSL" value="ABAIXO" color="#ff4d6d" />
+          <Line asset="Equal Highs" value="DETECTADO" color="#00d0ff" />
+          <Line asset="FVG" value="ABERTO" color="#ffd500" />
+        </Box>
+      </div>
+
+      {/* ICT + PROP */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
+          marginBottom: "25px",
+        }}
+      >
+        <Box title="ICT Killzones">
+          <Line asset="London Open" value="ACTIVE" color="#00d0ff" />
+          <Line asset="New York Open" value="OPEN" color="#00ff88" />
+          <Line asset="Lunch" value="PENDENTE" color="#ffd500" />
+          <Line asset="Power Hour" value="15:00" color="#ff4d6d" />
+        </Box>
+
+        <Box title="Painel Apex">
+          <Line asset="Drawdown" value="17%" color="#ffd500" />
+          <Line asset="Consistency" value="OK" color="#00ff88" />
+          <Line asset="Status" value="SEGURO" color="#00d0ff" />
+          <Line asset="Loss Diário" value="$430" color="#ff4d6d" />
+        </Box>
+      </div>
+
+      {/* MAG7 + HEATMAP */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
+          marginBottom: "25px",
+        }}
+      >
         <Box title="Magnificent 7">
           <Line asset="NVIDIA" value="+2.51%" color="#00ff88" />
-          <Line asset="Microsoft" value="+1.11%" color="#00ff88" />
+          <Line asset="Microsoft" value="+1.12%" color="#00ff88" />
           <Line asset="Apple" value="+0.88%" color="#00ff88" />
           <Line asset="Meta" value="+1.44%" color="#00ff88" />
           <Line asset="Amazon" value="-0.42%" color="#ff4d6d" />
@@ -239,80 +223,49 @@ export default function Home() {
           <Line asset="Alphabet" value="+0.66%" color="#00ff88" />
         </Box>
 
-        {/* HEATMAP */}
         <Box title="Heatmap Tecnologia">
-          <HeatRow name="NVDA" color="#00ff88" />
-          <HeatRow name="AAPL" color="#00ff88" />
-          <HeatRow name="AMD" color="#00ff88" />
-          <HeatRow name="META" color="#00ff88" />
-          <HeatRow name="TSLA" color="#ff4d6d" />
-          <HeatRow name="INTC" color="#ff4d6d" />
-          <HeatRow name="PLTR" color="#00d0ff" />
+          <Heat name="NVDA" color="#00ff88" />
+          <Heat name="META" color="#00ff88" />
+          <Heat name="AMD" color="#00ff88" />
+          <Heat name="AAPL" color="#00d0ff" />
+          <Heat name="TSLA" color="#ff4d6d" />
+          <Heat name="INTC" color="#ff4d6d" />
         </Box>
       </div>
 
-      {/* NEWS + ECONOMIC */}
+      {/* NEWS + DARKPOOL */}
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "20px",
-          marginBottom: "25px",
         }}
       >
-        {/* NEWS */}
         <Box title="Market News">
-          <News text="Nasdaq mantém fluxo comprador institucional." />
-          <News text="Mercado aguarda CPI desta semana." />
-          <News text="NVIDIA lidera tecnologia." />
-          <News text="DXY perde força durante sessão asiática." />
+          <News text="Nasdaq mantém força compradora institucional." />
+          <News text="NVIDIA lidera fluxo de tecnologia." />
+          <News text="Mercado aguarda CPI." />
+          <News text="DXY perde momentum." />
           <News text="Treasury yields em queda." />
         </Box>
 
-        {/* ECONOMIC */}
-        <Box title="Calendário Econômico">
-          <Line asset="CPI" value="09:30" color="#ff4d6d" />
-          <Line asset="Powell Speech" value="14:00" color="#ffd500" />
-          <Line asset="NFP" value="Friday" color="#00d0ff" />
-          <Line asset="FOMC" value="Wednesday" color="#ff4d6d" />
-        </Box>
-      </div>
-
-      {/* APEX + LIQUIDITY */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "20px",
-        }}
-      >
-        {/* APEX */}
-        <Box title="Painel Apex">
-          <Line asset="Loss Diário" value="$430" color="#ff4d6d" />
-          <Line asset="Restante" value="$2,070" color="#00ff88" />
-          <Line asset="Winrate" value="74%" color="#00d0ff" />
-          <Line asset="Drawdown" value="17%" color="#ffd500" />
-          <Line asset="Status" value="SEGURO" color="#00ff88" />
-        </Box>
-
-        {/* LIQUIDITY */}
-        <Box title="Scanner de Liquidez">
+        <Box title="Dark Pool / News Impact">
           <Alert
-            title="Equal High detectado"
-            desc="Possível sweep comprador."
+            title="Dark Pool activity elevada"
+            desc="NVDA institucional detectado."
             color="#00d0ff"
           />
 
           <Alert
-            title="FVG aberto no 15m"
-            desc="Região institucional ativa."
-            color="#00ff88"
+            title="High Impact News"
+            desc="CPI em 12h."
+            color="#ff4d6d"
           />
 
           <Alert
-            title="SSL abaixo do range"
-            desc="Liquidez vendida detectada."
-            color="#ff4d6d"
+            title="Risk Sentiment"
+            desc="76% Risk ON."
+            color="#00ff88"
           />
         </Box>
       </div>
@@ -320,7 +273,7 @@ export default function Home() {
   );
 }
 
-/* COMPONENTES */
+/* COMPONENTS */
 
 function Card({ title, value, color, desc }: any) {
   return (
@@ -332,9 +285,7 @@ function Card({ title, value, color, desc }: any) {
         padding: "20px",
       }}
     >
-      <div style={{ color: "#7c8aa0", marginBottom: "10px" }}>
-        {title}
-      </div>
+      <div style={{ color: "#7c8aa0", marginBottom: "10px" }}>{title}</div>
 
       <div
         style={{
@@ -369,9 +320,7 @@ function Session({ city, status, trend, color }: any) {
           marginBottom: "15px",
         }}
       >
-        <div style={{ color, fontSize: "28px" }}>
-          {city}
-        </div>
+        <div style={{ color, fontSize: "28px" }}>{city}</div>
 
         <div style={{ color }}>{status}</div>
       </div>
@@ -420,12 +369,7 @@ function Line({ asset, value, color }: any) {
     >
       <div>{asset}</div>
 
-      <div
-        style={{
-          color,
-          fontWeight: "bold",
-        }}
-      >
+      <div style={{ color, fontWeight: "bold" }}>
         {value}
       </div>
     </div>
@@ -472,7 +416,7 @@ function News({ text }: any) {
   );
 }
 
-function HeatRow({ name, color }: any) {
+function Heat({ name, color }: any) {
   return (
     <div
       style={{
@@ -485,44 +429,6 @@ function HeatRow({ name, color }: any) {
       }}
     >
       {name}
-    </div>
-  );
-}
-
-function MiniBtn({ text }: any) {
-  return (
-    <button
-      style={{
-        background: "#111827",
-        border: "1px solid #18335f",
-        color: "#00ff88",
-        borderRadius: "10px",
-        padding: "10px 16px",
-        cursor: "pointer",
-      }}
-    >
-      {text}
-    </button>
-  );
-}
-
-function Bar({ width, color }: any) {
-  return (
-    <div
-      style={{
-        background: "#1e2a45",
-        height: "18px",
-        borderRadius: "10px",
-      }}
-    >
-      <div
-        style={{
-          width,
-          background: color,
-          height: "18px",
-          borderRadius: "10px",
-        }}
-      />
     </div>
   );
 }
