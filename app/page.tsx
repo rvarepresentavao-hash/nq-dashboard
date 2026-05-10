@@ -10,27 +10,45 @@ export default function Home() {
       }}
     >
       {/* HEADER */}
-      <h1
-        style={{
-          color: "#00ff88",
-          fontSize: "56px",
-          marginBottom: "10px",
-        }}
-      >
-        NQ CME ALPHA ELITE
-      </h1>
+      <div style={{ marginBottom: "25px" }}>
+        <h1
+          style={{
+            color: "#00ff88",
+            fontSize: "58px",
+            marginBottom: "10px",
+          }}
+        >
+          NQ CME ALPHA ELITE
+        </h1>
 
-      <p
+        <p
+          style={{
+            color: "#7b8aa0",
+            fontSize: "18px",
+          }}
+        >
+          Sistema Institucional • Nasdaq Futures CME • Apex
+        </p>
+      </div>
+
+      {/* TICKER */}
+      <div
         style={{
-          color: "#7b8aa0",
-          marginBottom: "30px",
+          background: "#0b1630",
+          border: "1px solid #18335f",
+          padding: "15px",
+          borderRadius: "15px",
+          marginBottom: "25px",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          color: "#00ff88",
           fontSize: "18px",
         }}
       >
-        Sistema Institucional • Nasdaq Futures CME • Apex
-      </p>
+        NQ +1.24% • ES +0.88% • BTC +2.11% • DXY -0.31% • VIX -1.22% • GOLD +0.44% • NVDA +2.51% • META +1.44%
+      </div>
 
-      {/* CARDS TOPO */}
+      {/* TOPO */}
       <div
         style={{
           display: "grid",
@@ -39,73 +57,28 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
-        <TopCard
-          title="Bias do Dia"
-          value="LONG"
-          color="#00ff88"
-          desc="Fluxo institucional comprador."
-        />
-
-        <TopCard
-          title="Modo"
-          value="BREAKOUT"
-          color="#ffd500"
-          desc="Compressão detectada."
-        />
-
-        <TopCard
-          title="Probabilidade"
-          value="78%"
-          color="#00d0ff"
-          desc="Confluência estatística."
-        />
-
-        <TopCard
-          title="Volatilidade"
-          value="ALTA"
-          color="#ff4d6d"
-          desc="Mercado acelerado."
-        />
+        <Card title="Bias do Dia" value="LONG" color="#00ff88" desc="Fluxo comprador institucional." />
+        <Card title="Modo" value="BREAKOUT" color="#ffd500" desc="Compressão detectada." />
+        <Card title="Probabilidade IA" value="78%" color="#00d0ff" desc="Confluência estatística." />
+        <Card title="Volatilidade" value="ALTA" color="#ff4d6d" desc="Mercado acelerado." />
       </div>
 
-      {/* SESSÕES */}
+      {/* CLOCKS */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
+          gridTemplateColumns: "repeat(4,1fr)",
           gap: "20px",
           marginBottom: "25px",
         }}
       >
-        <SessionCard
-          city="NEW YORK"
-          status="FECHADO"
-          open="21,420"
-          current="21,542"
-          trend="ALTA"
-          color="#00ff88"
-        />
-
-        <SessionCard
-          city="LONDON"
-          status="FECHADO"
-          open="21,310"
-          current="21,542"
-          trend="FORTE"
-          color="#00d0ff"
-        />
-
-        <SessionCard
-          city="TOKYO"
-          status="ABERTO"
-          open="21,180"
-          current="21,210"
-          trend="NEUTRO"
-          color="#ffd500"
-        />
+        <Session city="NEW YORK" status="FECHADO" trend="ALTA" color="#00ff88" />
+        <Session city="LONDON" status="FECHADO" trend="FORTE" color="#00d0ff" />
+        <Session city="TOKYO" status="ABERTO" trend="NEUTRO" color="#ffd500" />
+        <Session city="SYDNEY" status="ABERTO" trend="ALTA" color="#00ff88" />
       </div>
 
-      {/* GRÁFICO + FEAR */}
+      {/* CHART + SIDE */}
       <div
         style={{
           display: "grid",
@@ -114,7 +87,7 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
-        {/* GRÁFICO */}
+        {/* CHART */}
         <div
           style={{
             background: "#0b1630",
@@ -131,7 +104,7 @@ export default function Home() {
             }}
           >
             <div style={{ color: "#00ff88", fontSize: "28px" }}>
-              NASDAQ 100 LIVE
+              NASDAQ CME LIVE
             </div>
 
             <div style={{ color: "#00ff88", fontSize: "20px" }}>
@@ -140,17 +113,33 @@ export default function Home() {
           </div>
 
           <iframe
-            src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ:NDX&interval=15&theme=dark"
+            src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=CAPITALCOM:US100&interval=15&theme=dark&style=1&timezone=America/New_York"
             style={{
               width: "100%",
-              height: "520px",
+              height: "600px",
               border: "none",
               borderRadius: "15px",
             }}
           />
+
+          {/* TIMEFRAMES */}
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              marginTop: "20px",
+            }}
+          >
+            <MiniBtn text="1m" />
+            <MiniBtn text="5m" />
+            <MiniBtn text="15m" />
+            <MiniBtn text="1H" />
+            <MiniBtn text="4H" />
+            <MiniBtn text="Daily" />
+          </div>
         </div>
 
-        {/* FEAR */}
+        {/* RIGHT */}
         <div
           style={{
             display: "flex",
@@ -158,93 +147,79 @@ export default function Home() {
             gap: "20px",
           }}
         >
-          <div
-            style={{
-              background: "#0b1630",
-              border: "1px solid #18335f",
-              borderRadius: "20px",
-              padding: "20px",
-            }}
-          >
-            <div
-              style={{
-                color: "#00ff88",
-                fontSize: "26px",
-                marginBottom: "25px",
-              }}
-            >
-              Fear & Greed
-            </div>
-
-            <div
-              style={{
-                fontSize: "80px",
-                color: "#00ff88",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              74
-            </div>
-
+          {/* FEAR */}
+          <Box title="Fear & Greed">
             <div
               style={{
                 textAlign: "center",
-                color: "#00ff88",
-                fontSize: "28px",
-                marginBottom: "20px",
-              }}
-            >
-              GREED
-            </div>
-
-            <div
-              style={{
-                background: "#1e2a45",
-                height: "18px",
-                borderRadius: "10px",
               }}
             >
               <div
                 style={{
-                  width: "74%",
-                  background: "#22c55e",
-                  height: "18px",
-                  borderRadius: "10px",
+                  color: "#00ff88",
+                  fontSize: "80px",
+                  fontWeight: "bold",
                 }}
-              />
+              >
+                74
+              </div>
+
+              <div
+                style={{
+                  color: "#00ff88",
+                  fontSize: "28px",
+                  marginBottom: "20px",
+                }}
+              >
+                GREED
+              </div>
+
+              <Bar width="74%" color="#22c55e" />
             </div>
-          </div>
+          </Box>
 
           {/* INSTITUCIONAL */}
-          <div
-            style={{
-              background: "#0b1630",
-              border: "1px solid #18335f",
-              borderRadius: "20px",
-              padding: "20px",
-            }}
-          >
-            <div
-              style={{
-                color: "#00d0ff",
-                fontSize: "24px",
-                marginBottom: "20px",
-              }}
-            >
-              Institucional
-            </div>
+          <Box title="Institucional">
+            <Line asset="DXY" value="BEARISH" color="#ff4d6d" />
+            <Line asset="VIX" value="LOW VOL" color="#00ff88" />
+            <Line asset="10Y" value="BULLISH" color="#00d0ff" />
+            <Line asset="BTC" value="RISK ON" color="#ffd500" />
+            <Line asset="ES" value="LONG" color="#00ff88" />
+          </Box>
 
-            <InfoLine asset="DXY" status="BEARISH" color="#ff4d6d" />
-            <InfoLine asset="VIX" status="LOW" color="#00ff88" />
-            <InfoLine asset="10Y" status="BULLISH" color="#00d0ff" />
-            <InfoLine asset="ES" status="LONG" color="#00ff88" />
-            <InfoLine asset="BTC" status="RISK ON" color="#ffd500" />
-          </div>
+          {/* IA */}
+          <Box title="IA Institucional">
+            <Alert
+              title="Fluxo comprador dominante"
+              desc="Acima da VWAP + EMA21."
+              color="#00ff88"
+            />
+
+            <Alert
+              title="Liquidez acima das máximas"
+              desc="Sweep provável em NY."
+              color="#ffd500"
+            />
+          </Box>
         </div>
       </div>
 
-      {/* 7 MAIORES + 14 TECH */}
+      {/* MARKET STRUCTURE */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4,1fr)",
+          gap: "20px",
+          marginBottom: "25px",
+        }}
+      >
+        <Card title="Market Structure" value="HH / HL" color="#00ff88" desc="Estrutura bullish." />
+        <Card title="VWAP" value="ACIMA" color="#00ff88" desc="Preço acima da VWAP." />
+        <Card title="EMA 21" value="BULLISH" color="#00d0ff" desc="Momentum comprador." />
+        <Card title="EMA 200" value="BULLISH" color="#00ff88" desc="HTF alinhado." />
+      </div>
+
+      {/* MAG7 + TECH */}
       <div
         style={{
           display: "grid",
@@ -253,79 +228,30 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
-        {/* 7 MAIORES */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#00ff88",
-              fontSize: "28px",
-              marginBottom: "20px",
-            }}
-          >
-            Magnificent 7
-          </div>
+        {/* MAG7 */}
+        <Box title="Magnificent 7">
+          <Line asset="NVIDIA" value="+2.51%" color="#00ff88" />
+          <Line asset="Microsoft" value="+1.11%" color="#00ff88" />
+          <Line asset="Apple" value="+0.88%" color="#00ff88" />
+          <Line asset="Meta" value="+1.44%" color="#00ff88" />
+          <Line asset="Amazon" value="-0.42%" color="#ff4d6d" />
+          <Line asset="Tesla" value="-1.87%" color="#ff4d6d" />
+          <Line asset="Alphabet" value="+0.66%" color="#00ff88" />
+        </Box>
 
-          <AssetLine name="NVIDIA" value="+2.51%" color="#00ff88" />
-          <AssetLine name="Microsoft" value="+1.12%" color="#00ff88" />
-          <AssetLine name="Apple" value="+0.85%" color="#00ff88" />
-          <AssetLine name="Amazon" value="-0.42%" color="#ff4d6d" />
-          <AssetLine name="Meta" value="+1.44%" color="#00ff88" />
-          <AssetLine name="Tesla" value="-1.87%" color="#ff4d6d" />
-          <AssetLine name="Alphabet" value="+0.66%" color="#00ff88" />
-        </div>
-
-        {/* 14 TECH */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#00d0ff",
-              fontSize: "28px",
-              marginBottom: "20px",
-            }}
-          >
-            Top 14 Tecnologia
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "15px",
-            }}
-          >
-            <TechCard name="Apple" status="FORTE" color="#00ff88" />
-            <TechCard name="Microsoft" status="FORTE" color="#00ff88" />
-            <TechCard name="NVIDIA" status="EXTREMO" color="#00d0ff" />
-            <TechCard name="Amazon" status="NEUTRO" color="#ffd500" />
-            <TechCard name="Meta" status="FORTE" color="#00ff88" />
-            <TechCard name="Tesla" status="FRACO" color="#ff4d6d" />
-            <TechCard name="Netflix" status="FORTE" color="#00ff88" />
-            <TechCard name="AMD" status="FORTE" color="#00ff88" />
-            <TechCard name="Intel" status="FRACO" color="#ff4d6d" />
-            <TechCard name="TSMC" status="FORTE" color="#00ff88" />
-            <TechCard name="Oracle" status="NEUTRO" color="#ffd500" />
-            <TechCard name="Adobe" status="LONG" color="#00ff88" />
-            <TechCard name="Palantir" status="EXTREMO" color="#00d0ff" />
-            <TechCard name="Broadcom" status="FORTE" color="#00ff88" />
-          </div>
-        </div>
+        {/* HEATMAP */}
+        <Box title="Heatmap Tecnologia">
+          <HeatRow name="NVDA" color="#00ff88" />
+          <HeatRow name="AAPL" color="#00ff88" />
+          <HeatRow name="AMD" color="#00ff88" />
+          <HeatRow name="META" color="#00ff88" />
+          <HeatRow name="TSLA" color="#ff4d6d" />
+          <HeatRow name="INTC" color="#ff4d6d" />
+          <HeatRow name="PLTR" color="#00d0ff" />
+        </Box>
       </div>
 
-      {/* ECONOMIA + APEX */}
+      {/* NEWS + ECONOMIC */}
       <div
         style={{
           display: "grid",
@@ -334,75 +260,25 @@ export default function Home() {
           marginBottom: "25px",
         }}
       >
+        {/* NEWS */}
+        <Box title="Market News">
+          <News text="Nasdaq mantém fluxo comprador institucional." />
+          <News text="Mercado aguarda CPI desta semana." />
+          <News text="NVIDIA lidera tecnologia." />
+          <News text="DXY perde força durante sessão asiática." />
+          <News text="Treasury yields em queda." />
+        </Box>
+
         {/* ECONOMIC */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#ffd500",
-              fontSize: "28px",
-              marginBottom: "20px",
-            }}
-          >
-            Calendário Econômico
-          </div>
-
-          <CalendarLine
-            event="CPI"
-            desc="Inflação EUA"
-            time="09:30"
-            color="#ff4d6d"
-          />
-
-          <CalendarLine
-            event="Powell Speech"
-            desc="Presidente FED"
-            time="14:00"
-            color="#ffd500"
-          />
-
-          <CalendarLine
-            event="NFP"
-            desc="Payroll EUA"
-            time="Friday"
-            color="#00d0ff"
-          />
-        </div>
-
-        {/* APEX */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#00d0ff",
-              fontSize: "28px",
-              marginBottom: "20px",
-            }}
-          >
-            Painel Apex
-          </div>
-
-          <InfoLine asset="Loss Diário" status="$430" color="#ff4d6d" />
-          <InfoLine asset="Restante" status="$2,070" color="#00ff88" />
-          <InfoLine asset="Winrate" status="72%" color="#00d0ff" />
-          <InfoLine asset="Drawdown" status="17%" color="#ffd500" />
-          <InfoLine asset="Status" status="SEGURO" color="#00ff88" />
-        </div>
+        <Box title="Calendário Econômico">
+          <Line asset="CPI" value="09:30" color="#ff4d6d" />
+          <Line asset="Powell Speech" value="14:00" color="#ffd500" />
+          <Line asset="NFP" value="Friday" color="#00d0ff" />
+          <Line asset="FOMC" value="Wednesday" color="#ff4d6d" />
+        </Box>
       </div>
 
-      {/* IA + SCANNER */}
+      {/* APEX + LIQUIDITY */}
       <div
         style={{
           display: "grid",
@@ -410,73 +286,35 @@ export default function Home() {
           gap: "20px",
         }}
       >
-        {/* IA */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#7c8aa0",
-              marginBottom: "20px",
-            }}
-          >
-            IA Institucional
-          </div>
+        {/* APEX */}
+        <Box title="Painel Apex">
+          <Line asset="Loss Diário" value="$430" color="#ff4d6d" />
+          <Line asset="Restante" value="$2,070" color="#00ff88" />
+          <Line asset="Winrate" value="74%" color="#00d0ff" />
+          <Line asset="Drawdown" value="17%" color="#ffd500" />
+          <Line asset="Status" value="SEGURO" color="#00ff88" />
+        </Box>
 
-          <AlertCard
-            title="Fluxo comprador dominante"
-            desc="Acima da VWAP + EMA21."
-            color="#00ff88"
-          />
-
-          <AlertCard
-            title="Liquidez acima da máxima"
-            desc="Sweep projetado em NY."
-            color="#ffd500"
-          />
-        </div>
-
-        {/* SCANNER */}
-        <div
-          style={{
-            background: "#0b1630",
-            border: "1px solid #18335f",
-            borderRadius: "20px",
-            padding: "20px",
-          }}
-        >
-          <div
-            style={{
-              color: "#7c8aa0",
-              marginBottom: "20px",
-            }}
-          >
-            Scanner de Liquidez
-          </div>
-
-          <AlertCard
+        {/* LIQUIDITY */}
+        <Box title="Scanner de Liquidez">
+          <Alert
             title="Equal High detectado"
             desc="Possível sweep comprador."
             color="#00d0ff"
           />
 
-          <AlertCard
-            title="FVG aberto 15m"
+          <Alert
+            title="FVG aberto no 15m"
             desc="Região institucional ativa."
             color="#00ff88"
           />
 
-          <AlertCard
+          <Alert
             title="SSL abaixo do range"
             desc="Liquidez vendida detectada."
             color="#ff4d6d"
           />
-        </div>
+        </Box>
       </div>
     </div>
   );
@@ -484,7 +322,7 @@ export default function Home() {
 
 /* COMPONENTES */
 
-function TopCard({ title, value, color, desc }: any) {
+function Card({ title, value, color, desc }: any) {
   return (
     <div
       style={{
@@ -494,7 +332,9 @@ function TopCard({ title, value, color, desc }: any) {
         padding: "20px",
       }}
     >
-      <div style={{ color: "#7c8aa0", marginBottom: "10px" }}>{title}</div>
+      <div style={{ color: "#7c8aa0", marginBottom: "10px" }}>
+        {title}
+      </div>
 
       <div
         style={{
@@ -512,14 +352,7 @@ function TopCard({ title, value, color, desc }: any) {
   );
 }
 
-function SessionCard({
-  city,
-  status,
-  open,
-  current,
-  trend,
-  color,
-}: any) {
+function Session({ city, status, trend, color }: any) {
   return (
     <div
       style={{
@@ -533,82 +366,49 @@ function SessionCard({
         style={{
           display: "flex",
           justifyContent: "space-between",
-          marginBottom: "20px",
+          marginBottom: "15px",
         }}
       >
-        <div style={{ color, fontSize: "30px" }}>{city}</div>
-
-        <div style={{ color, fontSize: "28px" }}>{status}</div>
-      </div>
-
-      <div style={{ fontSize: "20px", lineHeight: "38px" }}>
-        <div>Abertura: {open}</div>
-        <div>Atual: {current}</div>
-
-        <div style={{ color, fontWeight: "bold" }}>
-          Tendência: {trend}
+        <div style={{ color, fontSize: "28px" }}>
+          {city}
         </div>
+
+        <div style={{ color }}>{status}</div>
+      </div>
+
+      <div style={{ color: "#9fb0c7" }}>
+        Tendência: {trend}
       </div>
     </div>
   );
 }
 
-function AssetLine({ name, value, color }: any) {
+function Box({ title, children }: any) {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "14px 0",
-        borderBottom: "1px solid #18335f",
-      }}
-    >
-      <div>{name}</div>
-
-      <div style={{ color, fontWeight: "bold" }}>{value}</div>
-    </div>
-  );
-}
-
-function TechCard({ name, status, color }: any) {
-  return (
-    <div
-      style={{
+        background: "#0b1630",
         border: "1px solid #18335f",
-        borderRadius: "15px",
-        padding: "15px",
+        borderRadius: "20px",
+        padding: "20px",
       }}
     >
-      <div style={{ marginBottom: "10px" }}>{name}</div>
-
-      <div style={{ color, fontWeight: "bold" }}>{status}</div>
-    </div>
-  );
-}
-
-function CalendarLine({ event, desc, time, color }: any) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        marginBottom: "20px",
-        borderBottom: "1px solid #18335f",
-        paddingBottom: "15px",
-      }}
-    >
-      <div>
-        <div style={{ color, fontWeight: "bold" }}>{event}</div>
-
-        <div style={{ color: "#7c8aa0" }}>{desc}</div>
+      <div
+        style={{
+          color: "#7c8aa0",
+          marginBottom: "20px",
+          fontSize: "24px",
+        }}
+      >
+        {title}
       </div>
 
-      <div style={{ color, fontWeight: "bold" }}>{time}</div>
+      {children}
     </div>
   );
 }
 
-function InfoLine({ asset, status, color }: any) {
+function Line({ asset, value, color }: any) {
   return (
     <div
       style={{
@@ -620,12 +420,19 @@ function InfoLine({ asset, status, color }: any) {
     >
       <div>{asset}</div>
 
-      <div style={{ color, fontWeight: "bold" }}>{status}</div>
+      <div
+        style={{
+          color,
+          fontWeight: "bold",
+        }}
+      >
+        {value}
+      </div>
     </div>
   );
 }
 
-function AlertCard({ title, desc, color }: any) {
+function Alert({ title, desc, color }: any) {
   return (
     <div
       style={{
@@ -645,7 +452,77 @@ function AlertCard({ title, desc, color }: any) {
         {title}
       </div>
 
-      <div style={{ color: "#9fb0c7" }}>{desc}</div>
+      <div style={{ color: "#9fb0c7" }}>
+        {desc}
+      </div>
+    </div>
+  );
+}
+
+function News({ text }: any) {
+  return (
+    <div
+      style={{
+        borderBottom: "1px solid #18335f",
+        padding: "12px 0",
+      }}
+    >
+      • {text}
+    </div>
+  );
+}
+
+function HeatRow({ name, color }: any) {
+  return (
+    <div
+      style={{
+        background: color,
+        padding: "18px",
+        borderRadius: "12px",
+        fontWeight: "bold",
+        color: "black",
+        marginBottom: "12px",
+      }}
+    >
+      {name}
+    </div>
+  );
+}
+
+function MiniBtn({ text }: any) {
+  return (
+    <button
+      style={{
+        background: "#111827",
+        border: "1px solid #18335f",
+        color: "#00ff88",
+        borderRadius: "10px",
+        padding: "10px 16px",
+        cursor: "pointer",
+      }}
+    >
+      {text}
+    </button>
+  );
+}
+
+function Bar({ width, color }: any) {
+  return (
+    <div
+      style={{
+        background: "#1e2a45",
+        height: "18px",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width,
+          background: color,
+          height: "18px",
+          borderRadius: "10px",
+        }}
+      />
     </div>
   );
 }
